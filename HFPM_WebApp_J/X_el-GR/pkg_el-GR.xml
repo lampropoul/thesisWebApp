@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="package" version="3.1">
+	<name>Greek (Hellenic)</name>
+	<packagename>el-GR</packagename>
+	<version>3.1.0 v1</version>
+	<creationDate>2013-03-23</creationDate>
+	<author>chriszemp</author>
+	<authorEmail>chriszemp11@yahoo.gr</authorEmail>
+	<authorUrl>http://www.joomla.gr</authorUrl>
+	<description>3.1 Joomla! Greek Language Package</description>
+	<files>
+		<file type="language" client="site" id="el-GR">site_el-GR.zip</file>
+		<file type="language" client="administrator" id="el-GR">admin_el-GR.zip</file>
+	</files>
+	<updateservers>
+		<server type="extension" priority="1" name="Greek Language Pack Update Site">http://update.joomla.org/language/translationlist.xml</server>
+	</updateservers>
+</extension>

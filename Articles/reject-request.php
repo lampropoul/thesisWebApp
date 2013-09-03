@@ -46,13 +46,29 @@
 		if ( isset( $_GET['duty_id'] ) )
 		{
 			
+			
+			$query_string  = "SELECT * FROM change_list";
+			$query_string .= " WHERE id=".$_GET['duty_id'];
+			$result = $con->query($query_string);
+			
+			while ($change = $result->fetch_array())
+			{
+				$change_date = $change['request_date'];
+				$change_start = $change['request_start_time'];
+				$change_user_id = $change['user_id'];
+			}
+			
+			
+			
 			$query_string  = "DELETE FROM change_list WHERE id='".$_GET['duty_id']."'";
 			$result = $con->query($query_string);
 			
 			
 			
-			// --------------- SEND NOTIFICATION TO WP8 ------------------ //
+			// ******************** NOTIFY *********************** //
 			
+			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$change_user_id.", ".$_GET['duty_id'].", 1, 'Your request for date ".$change_date." and time ".$change_start." has NOT been fulfilled.')";
+			$con->query($query_string);
 			
 			
 			$con->close();

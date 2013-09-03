@@ -2,10 +2,10 @@
 -- version 3.5.1
 -- http://www.phpmyadmin.net
 --
--- Φιλοξενητής: localhost
--- Χρόνος δημιουργίας: 14 Αυγ 2013 στις 11:16:04
--- Έκδοση διακομιστή: 5.5.24-log
--- Έκδοση PHP: 5.4.3
+-- Host: localhost
+-- Generation Time: Sep 03, 2013 at 09:09 PM
+-- Server version: 5.5.24-log
+-- PHP Version: 5.4.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Βάση: `central_db`
+-- Database: `central_db`
 --
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `address`
+-- Table structure for table `address`
 --
 
 CREATE TABLE IF NOT EXISTS `address` (
@@ -40,16 +40,17 @@ CREATE TABLE IF NOT EXISTS `address` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Άδειασμα δεδομένων του πίνακα `address`
+-- Dumping data for table `address`
 --
 
 INSERT INTO `address` (`user_id`, `nomos`, `dimos`, `city`, `address`, `tk`, `perioxi`, `xwra`) VALUES
-(5, 'qwerty', 'qwerty', 'qwerty', 'qwerty', 12345, 'qwerty', 'qwerty');
+(5, 'qwerty', 'qwerty', 'qwerty', 'qwerty', 12345, 'qwerty', 'qwerty'),
+(6, 'DontKnow', 'DontKnow', 'DontKnow', 'DontKnow', 13579, 'DontKnow', 'DontKnow');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `bathmides`
+-- Table structure for table `bathmides`
 --
 
 CREATE TABLE IF NOT EXISTS `bathmides` (
@@ -63,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `bathmides` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=9 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `bathmides`
+-- Dumping data for table `bathmides`
 --
 
 INSERT INTO `bathmides` (`id`, `team_id`, `name`) VALUES
@@ -79,7 +80,7 @@ INSERT INTO `bathmides` (`id`, `team_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `change_list`
+-- Table structure for table `change_list`
 --
 
 CREATE TABLE IF NOT EXISTS `change_list` (
@@ -94,7 +95,7 @@ CREATE TABLE IF NOT EXISTS `change_list` (
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `computer_staff`
+-- Table structure for table `computer_staff`
 --
 
 CREATE TABLE IF NOT EXISTS `computer_staff` (
@@ -106,54 +107,58 @@ CREATE TABLE IF NOT EXISTS `computer_staff` (
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `declared_duties`
+-- Table structure for table `declared_duties`
 --
 
 CREATE TABLE IF NOT EXISTS `declared_duties` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `duty_type` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id` (`id`),
   KEY `duty_type` (`duty_type`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `declared_duties`
+-- Dumping data for table `declared_duties`
 --
 
 INSERT INTO `declared_duties` (`id`, `user_id`, `duty_type`) VALUES
 (1, 5, 'Βάρδια'),
-(2, 5, 'Εφημερία');
+(2, 5, 'Εφημερία'),
+(3, 6, 'Βάρδια'),
+(4, 6, 'Εφημερία'),
+(5, 6, 'Καθημερινά Ιατρεία');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `declared_locations`
+-- Table structure for table `declared_locations`
 --
 
 CREATE TABLE IF NOT EXISTS `declared_locations` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
   `location` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `location` (`location`),
   KEY `user_id_2` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `declared_locations`
+-- Dumping data for table `declared_locations`
 --
 
 INSERT INTO `declared_locations` (`id`, `user_id`, `location`) VALUES
-(1, 5, 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική');
+(1, 5, 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική'),
+(2, 6, 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `departments`
+-- Table structure for table `departments`
 --
 
 CREATE TABLE IF NOT EXISTS `departments` (
@@ -164,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `departments` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `departments`
+-- Dumping data for table `departments`
 --
 
 INSERT INTO `departments` (`id`, `department_name`) VALUES
@@ -176,7 +181,7 @@ INSERT INTO `departments` (`id`, `department_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `doctor_users`
+-- Table structure for table `doctor_users`
 --
 
 CREATE TABLE IF NOT EXISTS `doctor_users` (
@@ -193,16 +198,17 @@ CREATE TABLE IF NOT EXISTS `doctor_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Άδειασμα δεδομένων του πίνακα `doctor_users`
+-- Dumping data for table `doctor_users`
 --
 
 INSERT INTO `doctor_users` (`user_id`, `thesi`, `team_id`, `bathmida`, `eidikotita`) VALUES
-(5, 'thesi', 1, 'ΕΠΙΜΕΛΗΤΗΣ Γ (ΕΙΔΙΚΕΥΟΜΕΝΟΣ)', 'ΧΕΙΡΟΥΡΓΙΚΗ');
+(5, 'thesi', 1, 'ΕΠΙΜΕΛΗΤΗΣ Γ (ΕΙΔΙΚΕΥΟΜΕΝΟΣ)', 'ΧΕΙΡΟΥΡΓΙΚΗ'),
+(6, 'thesi', 1, 'ΕΠΙΜΕΛΗΤΗΣ Γ (ΕΙΔΙΚΕΥΟΜΕΝΟΣ)', 'ΠΑΘΟΛΟΓΙΚΗ');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `duties`
+-- Table structure for table `duties`
 --
 
 CREATE TABLE IF NOT EXISTS `duties` (
@@ -213,7 +219,7 @@ CREATE TABLE IF NOT EXISTS `duties` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `duties`
+-- Dumping data for table `duties`
 --
 
 INSERT INTO `duties` (`id`, `duty_name`) VALUES
@@ -224,7 +230,7 @@ INSERT INTO `duties` (`id`, `duty_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `eidikotites`
+-- Table structure for table `eidikotites`
 --
 
 CREATE TABLE IF NOT EXISTS `eidikotites` (
@@ -237,7 +243,7 @@ CREATE TABLE IF NOT EXISTS `eidikotites` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `eidikotites`
+-- Dumping data for table `eidikotites`
 --
 
 INSERT INTO `eidikotites` (`id`, `team_id`, `name`) VALUES
@@ -249,7 +255,7 @@ INSERT INTO `eidikotites` (`id`, `team_id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `locations`
+-- Table structure for table `locations`
 --
 
 CREATE TABLE IF NOT EXISTS `locations` (
@@ -261,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `locations` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `locations`
+-- Dumping data for table `locations`
 --
 
 INSERT INTO `locations` (`id`, `location_name`) VALUES
@@ -270,7 +276,7 @@ INSERT INTO `locations` (`id`, `location_name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `login_account`
+-- Table structure for table `login_account`
 --
 
 CREATE TABLE IF NOT EXISTS `login_account` (
@@ -286,7 +292,7 @@ CREATE TABLE IF NOT EXISTS `login_account` (
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `notify_user`
+-- Table structure for table `notify_user`
 --
 
 CREATE TABLE IF NOT EXISTS `notify_user` (
@@ -294,24 +300,16 @@ CREATE TABLE IF NOT EXISTS `notify_user` (
   `user_id` int(11) NOT NULL,
   `program_id` int(11) NOT NULL COMMENT 'id tou programmatos',
   `isSecretary` tinyint(1) NOT NULL,
+  `description` varchar(300) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `program_id` (`program_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
-
---
--- Άδειασμα δεδομένων του πίνακα `notify_user`
---
-
-INSERT INTO `notify_user` (`id`, `user_id`, `program_id`, `isSecretary`) VALUES
-(1, 5, 5, 1),
-(2, 4, 7, 1),
-(3, 5, 4, 1);
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `nurse_user`
+-- Table structure for table `nurse_user`
 --
 
 CREATE TABLE IF NOT EXISTS `nurse_user` (
@@ -329,7 +327,7 @@ CREATE TABLE IF NOT EXISTS `nurse_user` (
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `phone_numbers`
+-- Table structure for table `phone_numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `phone_numbers` (
@@ -342,16 +340,17 @@ CREATE TABLE IF NOT EXISTS `phone_numbers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Άδειασμα δεδομένων του πίνακα `phone_numbers`
+-- Dumping data for table `phone_numbers`
 --
 
 INSERT INTO `phone_numbers` (`user_id`, `telephone`, `mobile`, `fax`) VALUES
-(5, '2108520369', '2108520369', '2108520369');
+(5, '2108520369', '2108520369', '2108520369'),
+(6, '7894561230', '7894561230', '7894561230');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `progname`
+-- Table structure for table `progname`
 --
 
 CREATE TABLE IF NOT EXISTS `progname` (
@@ -359,16 +358,16 @@ CREATE TABLE IF NOT EXISTS `progname` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Άδειασμα δεδομένων του πίνακα `progname`
+-- Dumping data for table `progname`
 --
 
 INSERT INTO `progname` (`progname`) VALUES
-('qwerty');
+('efimeria');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `program`
+-- Table structure for table `program`
 --
 
 CREATE TABLE IF NOT EXISTS `program` (
@@ -384,22 +383,30 @@ CREATE TABLE IF NOT EXISTS `program` (
   KEY `user_id` (`user_id`),
   KEY `location` (`location`),
   KEY `duty_type` (`duty_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `program`
+-- Dumping data for table `program`
 --
 
 INSERT INTO `program` (`program_id`, `date`, `duty_type`, `duty_start_time`, `duty_end_time`, `location`, `user_id`, `program_name`) VALUES
 (4, '2013-08-21', 'Βάρδια', '09:00:00', '17:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'vardia 12/08'),
 (5, '2013-08-11', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'Εφημερία 11/08'),
-(6, '2013-08-28', 'Βάρδια', '05:00:00', '11:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'qwerty'),
-(7, '2013-08-28', 'Εφημερία', '05:00:00', '11:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 4, 'qwerty');
+(6, '2013-09-02', 'Βάρδια', '13:00:00', '21:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'qwerty'),
+(8, '2013-08-23', 'Βάρδια', '06:00:00', '14:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Efimeria 23/08'),
+(9, '2013-08-24', 'Εφημερία', '00:00:00', '08:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'Efimeria 23/08'),
+(10, '2013-08-29', 'Εφημερία', '15:00:00', '23:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'efimeria 29/08'),
+(11, '2013-08-28', 'Βάρδια', '05:00:00', '11:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Bardia 02/09'),
+(12, '2013-09-19', 'Καθημερινά Ιατρεία', '22:10:00', '06:10:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
+(13, '2013-09-25', 'Καθημερινά Ιατρεία', '10:00:00', '18:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
+(14, '2013-09-04', 'Καθημερινά Ιατρεία', '23:21:33', '07:21:33', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
+(17, '2013-09-13', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'efimeria'),
+(18, '2013-09-11', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'efimeria');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `stat_activity`
+-- Table structure for table `stat_activity`
 --
 
 CREATE TABLE IF NOT EXISTS `stat_activity` (
@@ -409,16 +416,16 @@ CREATE TABLE IF NOT EXISTS `stat_activity` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='Here a can check if a query is executed indeed!';
 
 --
--- Άδειασμα δεδομένων του πίνακα `stat_activity`
+-- Dumping data for table `stat_activity`
 --
 
 INSERT INTO `stat_activity` (`num_of_queries`, `last_happened_on`) VALUES
-(1978, '2013-08-01 20:46:37');
+(2882, '2013-09-03 21:02:27');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -437,33 +444,32 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `user_id` (`user_id`),
   KEY `department` (`department`),
   KEY `user_team` (`user_team`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_team`, `name_user`, `surname_user`, `username`, `password`, `email`, `amka`, `status`, `department`) VALUES
-(1, 1, 'Spirydon', 'Iatropoulos', 'siatrop', 's.iatrop.0', 'siatrop@gmail.com', '12041969017', 'active', 'Καρδιολογικό Τμήμα'),
-(2, 2, 'Vasileios', 'Lampropoulos', 'lampropoul', '12', 'lampropoul@live.com', '12048901859', 'active', 'Παθολογικό Τμήμα'),
-(4, 2, 'Vasileios', 'Papadopoulos', 'vpapadopou', '123', 'vapapadopou@gmail.com', '67342200876', 'active', 'Τμήμα Διαχείρισης Προσωπικού'),
-(5, 1, 'qwerty', 'qwerty', 'qwerty', 'qwerty', 'qwerty@qwerty.gr', '12345678900', 'active', 'Ακτινολογικό Τμήμα');
+(5, 1, 'Vasileios', 'Lampropoulos', 'qwerty', 'qw', 'qwerty@qwerty.gr', '12345678900', 'active', 'Ακτινολογικό Τμήμα'),
+(6, 1, 'Kostas', 'Dimitrakopoulos', 'q', 'q', 'q@q.gr', '15478963200', 'active', 'Παθολογικό Τμήμα');
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `user_id`
+-- Table structure for table `user_id`
 --
 
 CREATE TABLE IF NOT EXISTS `user_id` (
   `user_id` int(11) NOT NULL,
-  `step` int(2) NOT NULL
+  `step` int(2) NOT NULL,
+  KEY `user_id` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
 --
--- Δομή πίνακα για τον πίνακα `user_team`
+-- Table structure for table `user_team`
 --
 
 CREATE TABLE IF NOT EXISTS `user_team` (
@@ -473,7 +479,7 @@ CREATE TABLE IF NOT EXISTS `user_team` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Άδειασμα δεδομένων του πίνακα `user_team`
+-- Dumping data for table `user_team`
 --
 
 INSERT INTO `user_team` (`team_name`, `team_id`) VALUES
@@ -482,52 +488,50 @@ INSERT INTO `user_team` (`team_name`, `team_id`) VALUES
 ('ΔΙΟΙΚΗΤΙΚΟ ΠΡΟΣΩΠΙΚΟ', 3);
 
 --
--- Περιορισμοί για άχρηστους πίνακες
+-- Constraints for dumped tables
 --
 
 --
--- Περιορισμοί για πίνακα `address`
+-- Constraints for table `address`
 --
 ALTER TABLE `address`
   ADD CONSTRAINT `address_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `bathmides`
+-- Constraints for table `bathmides`
 --
 ALTER TABLE `bathmides`
   ADD CONSTRAINT `bathmides_ibfk_2` FOREIGN KEY (`team_id`) REFERENCES `user_team` (`team_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `change_list`
+-- Constraints for table `change_list`
 --
 ALTER TABLE `change_list`
   ADD CONSTRAINT `change_list_ibfk_2` FOREIGN KEY (`id`) REFERENCES `program` (`program_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `change_list_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `computer_staff`
+-- Constraints for table `computer_staff`
 --
 ALTER TABLE `computer_staff`
   ADD CONSTRAINT `computer_staff_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `declared_duties`
+-- Constraints for table `declared_duties`
 --
 ALTER TABLE `declared_duties`
-  ADD CONSTRAINT `declared_duties_ibfk_1` FOREIGN KEY (`id`) REFERENCES `duties` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `declared_duties_ibfk_2` FOREIGN KEY (`duty_type`) REFERENCES `duties` (`duty_name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `declared_duties_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `declared_locations`
+-- Constraints for table `declared_locations`
 --
 ALTER TABLE `declared_locations`
-  ADD CONSTRAINT `declared_locations_ibfk_2` FOREIGN KEY (`id`) REFERENCES `locations` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `declared_locations_ibfk_3` FOREIGN KEY (`location`) REFERENCES `locations` (`location_name`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `declared_locations_ibfk_4` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `doctor_users`
+-- Constraints for table `doctor_users`
 --
 ALTER TABLE `doctor_users`
   ADD CONSTRAINT `doctor_users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -536,20 +540,20 @@ ALTER TABLE `doctor_users`
   ADD CONSTRAINT `doctor_users_ibfk_4` FOREIGN KEY (`bathmida`) REFERENCES `bathmides` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `eidikotites`
+-- Constraints for table `eidikotites`
 --
 ALTER TABLE `eidikotites`
   ADD CONSTRAINT `eidikotites_ibfk_1` FOREIGN KEY (`team_id`) REFERENCES `user_team` (`team_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `notify_user`
+-- Constraints for table `notify_user`
 --
 ALTER TABLE `notify_user`
-  ADD CONSTRAINT `notify_user_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `notify_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `notify_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notify_user_ibfk_2` FOREIGN KEY (`program_id`) REFERENCES `program` (`program_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `nurse_user`
+-- Constraints for table `nurse_user`
 --
 ALTER TABLE `nurse_user`
   ADD CONSTRAINT `nurse_user_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -558,13 +562,13 @@ ALTER TABLE `nurse_user`
   ADD CONSTRAINT `nurse_user_ibfk_4` FOREIGN KEY (`eidikotita`) REFERENCES `eidikotites` (`name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `phone_numbers`
+-- Constraints for table `phone_numbers`
 --
 ALTER TABLE `phone_numbers`
   ADD CONSTRAINT `phone_numbers_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `program`
+-- Constraints for table `program`
 --
 ALTER TABLE `program`
   ADD CONSTRAINT `program_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
@@ -572,11 +576,17 @@ ALTER TABLE `program`
   ADD CONSTRAINT `program_ibfk_5` FOREIGN KEY (`duty_type`) REFERENCES `duties` (`duty_name`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Περιορισμοί για πίνακα `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_team`) REFERENCES `user_team` (`team_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`department`) REFERENCES `departments` (`department_name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `user_id`
+--
+ALTER TABLE `user_id`
+  ADD CONSTRAINT `user_id_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

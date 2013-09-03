@@ -87,7 +87,7 @@
 			
 			// ******************** NOTIFY *********************** //
 			
-			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$change_user_id.", ".$_GET['duty_id'].", 1)";
+			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$change_user_id.", ".$_GET['duty_id'].", 1, 'Your request for date ".$change_date." and time ".$change_start." has been fulfilled.')";
 			$con->query($query_string);
 			
 			$con->close();

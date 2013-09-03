@@ -226,13 +226,13 @@
 				
 				$con->close();
 				
-				header('Location: index.php/success');
+				header('Location: http://localhost/HFPM_WebApp_J/index.php/success');
 				
 				break;
 			}
 			
 			
-			if (!$result->num_rows) header('Location: index.php/error');
+			if (!$result->num_rows) header('Location: http://localhost/HFPM_WebApp_J/index.php/error');
 			
 			
 			

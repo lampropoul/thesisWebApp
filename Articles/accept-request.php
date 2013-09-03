@@ -43,7 +43,7 @@
 	{
 		if (confirm('Είστε σίγουροι ότι θέλετε να ανταλλάξετε αυτά τα καθήκοντα;'))
 		{
-			window.location.href='index.php/exchange-request?before=' + before_id + '&after=' + after_id;
+			window.location.href='http://localhost/HFPM_WebApp_J/index.php/exchange-request?before=' + before_id + '&after=' + after_id;
 		}
 	}
 	
@@ -52,7 +52,7 @@
 	{
 		if (confirm('Είστε σίγουροι ότι θέλετε να αλλάξετε αυτo τo καθήκον;'))
 		{
-			window.location.href='index.php/do-accept-request?duty_id=' + id;
+			window.location.href='http://localhost/HFPM_WebApp_J/index.php/do-accept-request?duty_id=' + id;
 		}
 	}
 	

@@ -24,7 +24,7 @@
 			{
 				return -1;
 			}
-    	}
+		}
 		
 		
 ?>
@@ -133,57 +133,56 @@
 	
 	
 	function validate_register(username, password1, password2, email, name_user, surname_user, amka)
-    {
+	{
 		if(!(validate_username(username) && validate_username_space(username) && validate_password(password1) && validate_password(password2) && same(password1, password2) && validate_email(email) && validate_nameOrSurname(name_user) && validate_nameOrSurname(surname_user) && validate_amka(amka))) {
 			return false;
 		}
 		return true;	
-    }
+	}
 	
 	
 	
 	
-    
+	
 </script>
 </head>
 
 
 <body>
 	
-	
-    					
-    <form action="index.php/user-registration" name="register" method="post" onSubmit="javascript:return validate_register(username, password1, password2, email, name_user, surname_user, amka);">
-        <table border="0" >
-            <tr>
-                <td><label for="uname">Εισάγετε Όνομα χρήστη:</label></td>
-                <td><input name="username" id="uname" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="pword1">Εισάγετε Κωδικό χρήστη:</label></td>          		
-                <td><input name="password1" id="pword1" type="password" size="20" maxlength="30"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="pword2">Επαναλάβετε Κωδικό χρήστη: </label></td>          		
-                <td><input name="password2" id="pword2" type="password" size="20" maxlength="30"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="eMail">Εισάγετε Email:</label></td>
-                <td><input name="email" id="e-mail" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="uname">Εισάγετε Όνομα:</label></td>
-                <td><input name="name_user" id="name" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="pword1">Εισάγετε Επώνυμο:</label></td>          		
-                <td><input name="surname_user" id="surname" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="pword2">Εισάγετε Ομάδα χρήστη: </label></td>          		
-                <td><!--<input name="user_team" id="pword2" type="text" size="20" maxlength="30"  autocomplete="off" />-->
-                <select name="team">
+				
+	<form action="" name="register" method="post" onSubmit="javascript:return validate_register(username, password1, password2, email, name_user, surname_user, amka);">
+		<table border="0" >
+			<tr>
+				<td><label for="uname">Εισάγετε Όνομα χρήστη:</label></td>
+				<td><input name="username" id="uname" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="pword1">Εισάγετε Κωδικό χρήστη:</label></td>          		
+				<td><input name="password1" id="pword1" type="password" size="20" maxlength="30"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="pword2">Επαναλάβετε Κωδικό χρήστη: </label></td>          		
+				<td><input name="password2" id="pword2" type="password" size="20" maxlength="30"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="eMail">Εισάγετε Email:</label></td>
+				<td><input name="email" id="e-mail" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="uname">Εισάγετε Όνομα:</label></td>
+				<td><input name="name_user" id="name" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="pword1">Εισάγετε Επώνυμο:</label></td>          		
+				<td><input name="surname_user" id="surname" type="text" size="20" maxlength="30"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="pword2">Εισάγετε Ομάδα χρήστη: </label></td>          		
+				<td><!--<input name="user_team" id="pword2" type="text" size="20" maxlength="30"  autocomplete="off" />-->
+				<select name="team">
 				<?php
-                	
+					
 					$con = connect_db('central_db');
 					
 					// define query
@@ -203,19 +202,19 @@
 					}
 					
 				?>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="eMail">Εισάγετε ΑΜΚΑ:</label></td>
-                <td><input name="amka" id="amka" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><label for="eMail">Εισάγετε Τμήμα:</label></td>
-                <td><!--<input name="department" id="eMail" type="text" size="20" maxlength="50"  autocomplete="off" /></td>-->
-                <select name="department">
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label for="eMail">Εισάγετε ΑΜΚΑ:</label></td>
+				<td><input name="amka" id="amka" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label for="eMail">Εισάγετε Τμήμα:</label></td>
+				<td><!--<input name="department" id="eMail" type="text" size="20" maxlength="50"  autocomplete="off" /></td>-->
+				<select name="department">
 				<?php
-                	
+					
 					$con = connect_db('central_db');
 					
 					// define query
@@ -235,18 +234,26 @@
 					}
 					
 				?>
-                </select>
-                </td>
-            </tr>
-            <tr>
-                <td><label for="eMail">Εισάγετε Κατάσταση:</label></td>
-                <td><input name="status" id="status" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Καταχώριση Γενικών Πληροφοριών" style="font-size:1em" class="btn btn-success"/></td>
-            </tr>
-        </table>
-    </form>
+				</select>
+				</td>
+			</tr>
+			<tr>
+				<td><label>Εισάγετε Κατάσταση:</label></td>
+				<td><input name="status" id="status" type="text" size="20" maxlength="50"  autocomplete="off" /></td>
+			</tr>
+			<tr>
+				<td><label>Επιλέξτε Τύπους Καθηκόντων:</label></td>
+				<td>
+					<input type="checkbox" name="vardia" value="Βάρδια">Βάρδια<br>
+					<input type="checkbox" name="efimeria" value="Εφημερία">Εφημερία<br>
+					<input type="checkbox" name="kathimerina" value="Καθημερινά Ιατρεία">Καθημερινά Ιατρεία<br>
+				</td>
+			</tr>
+			<tr>
+				<td><input type="submit" value="Καταχώριση Γενικών Πληροφοριών" style="font-size:1em" class="btn btn-success"/></td>
+			</tr>
+		</table>
+	</form>
 
 </body>
 </html>
@@ -305,9 +312,31 @@
 				// execute query
 				$result4 = $con->query($query_string);
 				
+				
+				// duty types
+				
+				if (isset($_POST['efimeria']))
+				{
+					$query_string = "INSERT INTO declared_duties VALUES (NULL, ".intval($row4['user_id']).", '".$_POST['efimeria']."')";
+					$con->query($query_string);
+				}
+				if (isset($_POST['vardia']))
+				{
+					$query_string = "INSERT INTO declared_duties VALUES (NULL, ".intval($row4['user_id']).", '".$_POST['vardia']."')";
+					$con->query($query_string);
+				}
+				if (isset($_POST['kathimerina']))
+				{
+					$query_string = "INSERT INTO declared_duties VALUES (NULL, ".intval($row4['user_id']).", '".$_POST['kathimerina']."')";
+					$con->query($query_string);
+				}
+				
+				
 				$con->close();
 				
-				if ($user_team_str == 'ΙΑΤΡΙΚΟ ΠΡΟΣΩΠΙΚΟ') header('Location: index.php/medical-info');
+				//$dir = explode( "\\", getcwd() );
+				//echo 'Location: http://' + $_SERVER['SERVER_NAME'] + '/' + $dir[count($dir)-1] + '/index.php/doctor-info';
+				if ($user_team_str == 'ΙΑΤΡΙΚΟ ΠΡΟΣΩΠΙΚΟ') header('Location: index.php/doctor-info');
 				else if ($user_team_str == 'ΝΟΣΗΛΕΥΤΙΚΟ ΠΡΟΣΩΠΙΚΟ') header('Location: index.php/nurse-info');
 				else header('Location: index.php/staff-info');
 			}

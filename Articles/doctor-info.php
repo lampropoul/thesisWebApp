@@ -58,7 +58,7 @@
 	
 	
 						
-	<form action="index.php/medical-info" name="register" method="post" onSubmit="javascript:return validate_register(thesi);">
+	<form action="index.php/doctor-info" name="register" method="post" onSubmit="javascript:return validate_register(thesi);">
 		<table border="0" >
 			<tr>
 				<td><label>Εισάγετε Θέση:</label></td>

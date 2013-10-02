@@ -59,11 +59,11 @@
 			
 			$con->close();
 			
-			header('Location: http://localhost/HFPM_WebApp_J/index.php/home');
+			header('Location: index.php/home');
 		}
 		
 		
-		if (!$result->num_rows) header('Location: http://localhost/HFPM_WebApp_J/index.php/error');
+		if (!$result->num_rows) header('Location: index.php/error');
 			
 			
 		

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Sep 03, 2013 at 09:09 PM
+-- Generation Time: Oct 02, 2013 at 06:32 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.4.3
 
@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `declared_duties` (
   KEY `id` (`id`),
   KEY `duty_type` (`duty_type`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `declared_duties`
@@ -304,7 +304,7 @@ CREATE TABLE IF NOT EXISTS `notify_user` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   KEY `program_id` (`program_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 -- --------------------------------------------------------
 
@@ -362,7 +362,7 @@ CREATE TABLE IF NOT EXISTS `progname` (
 --
 
 INSERT INTO `progname` (`progname`) VALUES
-('efimeria');
+('New Program');
 
 -- --------------------------------------------------------
 
@@ -383,7 +383,7 @@ CREATE TABLE IF NOT EXISTS `program` (
   KEY `user_id` (`user_id`),
   KEY `location` (`location`),
   KEY `duty_type` (`duty_type`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Dumping data for table `program`
@@ -397,11 +397,16 @@ INSERT INTO `program` (`program_id`, `date`, `duty_type`, `duty_start_time`, `du
 (9, '2013-08-24', 'Εφημερία', '00:00:00', '08:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'Efimeria 23/08'),
 (10, '2013-08-29', 'Εφημερία', '15:00:00', '23:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'efimeria 29/08'),
 (11, '2013-08-28', 'Βάρδια', '05:00:00', '11:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Bardia 02/09'),
-(12, '2013-09-19', 'Καθημερινά Ιατρεία', '22:10:00', '06:10:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
+(12, '2013-09-21', 'Βάρδια', '02:00:00', '10:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
 (13, '2013-09-25', 'Καθημερινά Ιατρεία', '10:00:00', '18:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
 (14, '2013-09-04', 'Καθημερινά Ιατρεία', '23:21:33', '07:21:33', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'Ka8imerina Dim Kostas'),
-(17, '2013-09-13', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'efimeria'),
-(18, '2013-09-11', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'efimeria');
+(17, '2013-09-09', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'efimeria'),
+(18, '2013-09-11', 'Εφημερία', '00:00:00', '01:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'efimeria'),
+(19, '2013-09-23', 'Εφημερία', '12:00:00', '20:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'efimeria 26/09'),
+(20, '2013-09-19', 'Βάρδια', '22:10:00', '06:10:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'asdf'),
+(21, '2013-09-26', 'Εφημερία', '19:38:58', '03:38:58', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 5, 'asdf'),
+(22, '2013-10-01', 'Βάρδια', '00:00:00', '08:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'New Program'),
+(23, '2013-10-02', 'Εφημερία', '00:00:00', '08:00:00', 'Γενικό Νοσοκομείο Αθηνών - Πολυκλινική', 6, 'New Program');
 
 -- --------------------------------------------------------
 
@@ -420,7 +425,7 @@ CREATE TABLE IF NOT EXISTS `stat_activity` (
 --
 
 INSERT INTO `stat_activity` (`num_of_queries`, `last_happened_on`) VALUES
-(2882, '2013-09-03 21:02:27');
+(4906, '2013-10-02 16:59:54');
 
 -- --------------------------------------------------------
 
@@ -444,15 +449,36 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `user_id` (`user_id`),
   KEY `department` (`department`),
   KEY `user_team` (`user_team`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_team`, `name_user`, `surname_user`, `username`, `password`, `email`, `amka`, `status`, `department`) VALUES
-(5, 1, 'Vasileios', 'Lampropoulos', 'qwerty', 'qw', 'qwerty@qwerty.gr', '12345678900', 'active', 'Ακτινολογικό Τμήμα'),
+(5, 1, 'Vasileios', 'Lampropoulos', 'qw', 'q', 'qwerty@qwerty.gr', '12345678900', 'active', 'Ακτινολογικό Τμήμα'),
 (6, 1, 'Kostas', 'Dimitrakopoulos', 'q', 'q', 'q@q.gr', '15478963200', 'active', 'Παθολογικό Τμήμα');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users_logged_in`
+--
+
+CREATE TABLE IF NOT EXISTS `users_logged_in` (
+  `user_id` int(10) NOT NULL,
+  `logged` tinyint(1) NOT NULL,
+  PRIMARY KEY (`user_id`),
+  KEY `user_id` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `users_logged_in`
+--
+
+INSERT INTO `users_logged_in` (`user_id`, `logged`) VALUES
+(5, 0),
+(6, 0);
 
 -- --------------------------------------------------------
 
@@ -581,6 +607,12 @@ ALTER TABLE `program`
 ALTER TABLE `users`
   ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_team`) REFERENCES `user_team` (`team_id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`department`) REFERENCES `departments` (`department_name`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `users_logged_in`
+--
+ALTER TABLE `users_logged_in`
+  ADD CONSTRAINT `users_logged_in_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `user_id`

@@ -104,10 +104,10 @@
 			
 			// ******************** NOTIFY *********************** //
 			
-			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$before_user_id.", ".$_GET['before'].", 1, 'Your request for date ".$after_date." and time ".$after_start." has been fulfilled.')";
+			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$before_user_id.", ".$_GET['before'].", 1)";
 			$con->query($query_string);
 			
-			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$after_user_id.", ".$_GET['after'].", 1, 'Your program on date ".$after_date." moved to ".$before_date.".')";
+			$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$after_user_id.", ".$_GET['after'].", 1)";
 			$con->query($query_string);
 			
 			

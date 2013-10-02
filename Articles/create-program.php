@@ -33,17 +33,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-
-<link rel="stylesheet" type="text/css" href="https://dl.dropboxusercontent.com/u/81059068/CSS%20for%20thesis%20WebApp/bootstrap.css" />
-<link href="https://dl.dropboxusercontent.com/u/81059068/CSS%20for%20thesis%20WebApp/bootstrap-combined.min.css" rel="stylesheet" />
-<link rel="stylesheet" type="text/css" media="screen" href="https://dl.dropboxusercontent.com/u/81059068/CSS%20for%20thesis%20WebApp/bootstrap-datetimepicker.min.css" />
-
-
-
 <script type="text/javascript" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">google.load("mootools", "1.1.2");</script>
-<script language="javascript" type="text/javascript" src="https://dl.dropboxusercontent.com/u/81059068/JS%20for%20thesis%20WebApp/jquery-1.8.3.min.js"></script>
-
 <script type="text/javascript">
 	
 	
@@ -290,28 +281,7 @@
 
 <body onload="select_type_loc_user()">
 	
-				<!--<div id="datetimepicker1" class="input-append date" style="width:auto">
-                  <input type="text" id="delete_date_meteo"></input>
-                  <span class="add-on">
-                    <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
-                  </span>
-                </div>                
-				<script type="text/javascript"
-                 src="https://dl.dropboxusercontent.com/u/81059068/JS%20for%20thesis%20WebApp/jquery.min.js">
-                </script> 
-                <script type="text/javascript"
-                 src="https://dl.dropboxusercontent.com/u/81059068/JS%20for%20thesis%20WebApp/bootstrap.min.js">
-                </script>
-                <script type="text/javascript"
-                 src="https://dl.dropboxusercontent.com/u/81059068/JS%20for%20thesis%20WebApp/bootstrap-datetimepicker.min.js">
-                </script>
-                <script type="text/javascript">
-                  $('#datetimepicker1').datetimepicker({
-                    format: 'yyyy-MM-dd',
-                    language: 'en-US',
-                    pickTime: false
-                  });
-                </script>-->
+	
 						
 	<form action="index.php/create-program" name="register" method="post" onSubmit="javascript:return validate(progname, date1, start_time1, end_time1);">
 		<table border="0" >
@@ -328,7 +298,6 @@
 			<tr>
 				<td><label>Ημερομηνία</label></td>
 				<td><input name="date1" id="uname" type="text" size="20" maxlength="30"  autocomplete="on" /></td>
-                
 			</tr>
 			<tr>
 				<td><label>Τύπος Καθήκοντος</label></td>          		
@@ -502,11 +471,6 @@
 					
 					$query_string = "INSERT INTO program VALUES (NULL, '".$date."', '".$duty_type."', '".$start_time.":00:00', '".$end_time.":00:00', '".$location."', ".$user_id.", '".$progname."')";
 					$result = $con->query($query_string);
-					
-					// ******************** NOTIFY *********************** //
-			
-					$query_string  = "INSERT INTO notify_user VALUES (NULL, ".$user_id.", LAST_INSERT_ID(), 1, 'New program on ".$date."')";
-					$con->query($query_string);
 					
 					
 					header('Location: ?created=1');
